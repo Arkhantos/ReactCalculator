@@ -25,7 +25,6 @@ jobs:
     - run: npm install react-scripts
     - name: lint
       run: npm run lint
-    - run: npm install -g prettier
     - name: Run Prettier
       run: npm run prettier
     - name: Test
