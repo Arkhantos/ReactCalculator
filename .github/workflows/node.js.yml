@@ -14,19 +14,17 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [15.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '15'
         cache: 'npm'
-    - run: npm ci
+    - name: Install
+      run: npm ci
     - run: npm install react-scripts
     - run: npm run build --if-present
-    - run: npm test
+    - name: Test
+      run: npm test
+    - name: Eslint
+      run: npm run eslint -- --max-warnings 0
