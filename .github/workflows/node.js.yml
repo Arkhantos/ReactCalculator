@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: '15'
         cache: 'npm'
@@ -25,7 +25,8 @@ jobs:
     - run: npm install react-scripts
     - name: lint
       run: npm run lint
-    - run: npm run prettier
+    - name: Run Prettier
+      run: npm run prettier
     - name: Test
       run: CI=true npm test
     - run: npm run build
