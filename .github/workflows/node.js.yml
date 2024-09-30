@@ -24,7 +24,7 @@ jobs:
       run: npm ci
     - run: npm install react-scripts
     - name: lint
-      run: npm lint
+      run: npm run lint
     - run: npm prettier
     - name: Test
       run: CI=true npm test
